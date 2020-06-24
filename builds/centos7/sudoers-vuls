@@ -1,0 +1,2 @@
+# see https://vuls.io/docs/en/usage-configtest.html#etc-sudoers
+vuls ALL=(ALL) NOPASSWD: /usr/bin/yum -q ps all --color=never, /usr/bin/stat, /usr/bin/needs-restarting, /usr/bin/which

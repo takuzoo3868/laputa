@@ -12,4 +12,13 @@
 *.out
 
 # Dependency directories (remove the comment below to include it)
-# vendor/
+/tmp
+/keys/*
+!/keys/.gitkeep
+authorized_keys
+/results/*
+!/results/.gitkeep
+config.toml
+*.sqlite3
+*.sqlite3-*
+*.db

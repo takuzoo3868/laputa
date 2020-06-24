@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  centos7:
+    build: builds/centos7
+    volumes:
+      - ./data:/data
+    ports:
+      - '2222:22'
+    command: '/bin/bash /data/init.sh'
+    cap_add:
+      - SYS_PTRACE  # for fast-root or deep scan
+  debian9:
+    build: builds/debian9
+    volumes:
+      - ./data:/data
+    ports:
+      - '2223:22'
+    command: '/bin/bash /data/init.sh'
+    cap_add:
+      - SYS_PTRACE  # for fast-root or deep scan
+  ubuntu18:
+    build: builds/ubuntu18
+    volumes:
+      - ./data:/data
+    ports:
+      - '2224:22'
+    command: '/bin/bash /data/init.sh'
+    cap_add:
+      - SYS_PTRACE  # for fast-root or deep scan

@@ -1,0 +1,61 @@
+[cveDict]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/cve.sqlite3"
+
+[ovalDict]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/oval.sqlite3"
+
+[gost]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/gost.sqlite3"
+
+[exploit]
+type = "sqlite3"
+SQLite3Path = "/path/to/db/go-exploitdb.sqlite3"
+
+[metasploit]
+type        = "sqlite3"
+SQLite3Path = "/path/to/db/go-msfdb.sqlite3"
+
+# [server]
+# rootPath = "/path/to/vulsrepo"
+# resultsPath = "/path/to/results"
+# serverPort = "5111"
+
+[servers.centos7]
+host = "127.0.0.1"
+port = "2222"
+user = "vuls"
+keyPath = "keys/id_ecdsa"
+scanMode = ["fast"]
+# cpeNames = [
+#    "cpe:2.3:a:nginx:nginx:1.15.2:*:*:*:*:*:*:*",
+#    "cpe:/a:rubyonrails:ruby_on_rails:4.2.1",
+# ]
+#containersIncluded = ["${running}"]
+#containersExcluded = ["container_name_a"]
+
+[servers.debian9]
+host = "127.0.0.1"
+port = "2223"
+user = "vuls"
+keyPath = "keys/id_ecdsa"
+scanMode = ["fast"]
+
+[servers.ubuntu18]
+host = "127.0.0.1"
+port = "2224"
+user = "vuls"
+keyPath = "keys/id_ecdsa"
+scanMode = ["fast"]
+
+# https://vuls.io/docs/en/usage-settings.html#slack-section
+#[slack]
+#hookURL = "https://hooks.slack.com/services/..."
+##legacyToken = "xoxp-11111111111-222222222222-3333333333"
+#channel      = "#channel-name"
+##channel     = "${servername}"
+#iconEmoji    = ":ghost:"
+#authUser     = "username"
+#notifyUsers  = ["@username"]
