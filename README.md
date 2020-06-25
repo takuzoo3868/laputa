@@ -10,7 +10,7 @@
 
 本来は[vulsctl](https://github.com/vulsio/vulsctl)を使うと大変便利ですが  
 `vuls` を開発しながら使うことを想定しているので  
-各ツールは `make install` でローカル環境に導入しています
+各ツールは `make install` でローカル環境に導入しています．
 
 ## Lite Latobarita Ulsu, Aliaros Bal Netoriil.
 
@@ -82,16 +82,16 @@ go-msfdb fetch msfdb --dbpath $(pwd)/db/go-msfdb.sqlite3
 
 ### 設定ファイルの生成 (初回のみ)
 
-`config_sample.toml` から `config.toml` を生成します
+`config_sample.toml` から `config.toml` を生成します．
 
 ```bash
 cp config_sample.toml config.toml
 ```
 
-`config.toml` 内の `SQLite3Path` の設定を絶対パスで指定します  
-`echo $(pwd)/db/xxx.sqlite3` で確認が可能です
+`config.toml` 内の `SQLite3Path` の設定を絶対パスで指定します．  
+`echo $(pwd)/db/xxx.sqlite3` で確認が可能です．
 
-### Vuls の設定をテスト
+### Vuls の設定を確認
 
 ```bash
 vuls configtest
@@ -111,7 +111,7 @@ vuls report -format-json
 
 ### 脆弱性レポートの確認
 
-お好みでどうぞ
+お好みでどうぞ！
 
 ```bash
 vuls report
@@ -124,7 +124,7 @@ vuls tui
 ### VulsRepo の使用
 
 VulsRepoは Docker を使います．
-`docker-compose` で設定済みですので，スキャン後に  
+`docker-compose` で設定済みですので，スキャン&レポート作成後に  
 ブラウザで `http://<server-address>:5111` へアクセスします．
 
 もし動作不良などありましたら issue へ記載お願いします．
