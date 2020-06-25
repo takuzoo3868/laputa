@@ -1,4 +1,4 @@
-FROM centos:7
+FROM centos:7.0.1406
 
 RUN set -x && \
     useradd -m vuls
@@ -9,7 +9,7 @@ RUN set -x && \
 
 # for deep scan
 RUN set -x && \
-    yum install -y sudo which yum-plugin-changelog yum-plugin-ps
+    yum install -y sudo which yum-utils yum-plugin-changelog yum-plugin-ps
 
 COPY sudoers-vuls /etc/sudoers.d/sudoers-vuls
 

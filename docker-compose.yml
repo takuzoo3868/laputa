@@ -6,12 +6,23 @@ services:
     volumes:
       - ./data:/data
     ports:
+      - '2221:22'
+    command: '/bin/bash /data/init.sh'
+    cap_add:
+      - SYS_PTRACE  # for fast-root or deep scan
+
+  centos8:
+    build: builds/centos8
+    volumes:
+      - ./data:/data
+    ports:
       - '2222:22'
     command: '/bin/bash /data/init.sh'
     cap_add:
       - SYS_PTRACE  # for fast-root or deep scan
-  debian9:
-    build: builds/debian9
+
+  debian10:
+    build: builds/debian10
     volumes:
       - ./data:/data
     ports:
@@ -19,6 +30,7 @@ services:
     command: '/bin/bash /data/init.sh'
     cap_add:
       - SYS_PTRACE  # for fast-root or deep scan
+
   ubuntu18:
     build: builds/ubuntu18
     volumes:
@@ -28,3 +40,12 @@ services:
     command: '/bin/bash /data/init.sh'
     cap_add:
       - SYS_PTRACE  # for fast-root or deep scan
+  
+  vulsrepo:
+      image: ishidaco/vulsrepo:latest
+      command:
+        - vulsrepo-server
+      volumes:
+        - ./results:/vuls/results
+      ports:
+        - "5111:5111"

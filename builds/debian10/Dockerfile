@@ -1,4 +1,6 @@
-FROM debian:9
+FROM debian:10
+
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN set -x && \
     useradd -m vuls

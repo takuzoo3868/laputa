@@ -12,7 +12,7 @@ RUN set -x && \
 
 RUN set -x && \
     apt-get update && \
-    apt-get install -y sudo locales aptitude reboot-notifier debian-goodies
+    apt-get install -y sudo locales aptitude debian-goodies
 
 COPY sudoers-vuls /etc/sudoers.d/sudoers-vuls
 
