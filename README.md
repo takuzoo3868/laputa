@@ -8,9 +8,20 @@
 `laputa` は `vuls` の機能をお試しで検証するDocker環境です．  
 様々なOSをセットアップします．
 
+- centos 7,8  
+- debian 10  
+- ubuntu 18
+
 本来は[vulsctl](https://github.com/vulsio/vulsctl)を使うと大変便利ですが  
 `vuls` を開発しながら使うことを想定しているので  
 各ツールは `make install` でローカル環境に導入しています．
+
+また，`Branded Vulnerabilities` を少し含んだ環境として `vulnhub` を用意しています．
+
+- Heartbleed(CVE-2014-0160)  
+- CCS Injection(CVE-2014-0224)  
+- ShellShock(CVE-2014-6271)  
+- VENOM(CVE-2015-3456)  
 
 ## Lite Latobarita Ulsu, Aliaros Bal Netoriil.
 
@@ -30,13 +41,14 @@ ln keys/authorized_keys data/
 sudo docker-compose up -d --build
 ```
 
-## ssh セットアップ
+## ssh セットアップ（初回のみ）
 
 ```bash
 ssh vuls@127.0.0.1 -p 2221 -i keys/id_ecdsa cat /etc/os-release
 ssh vuls@127.0.0.1 -p 2222 -i keys/id_ecdsa cat /etc/os-release
 ssh vuls@127.0.0.1 -p 2223 -i keys/id_ecdsa cat /etc/os-release
 ssh vuls@127.0.0.1 -p 2224 -i keys/id_ecdsa cat /etc/os-release
+ssh vuls@127.0.0.1 -p 9999 -i keys/id_ecdsa cat /etc/os-release
 ```
 
 ### ログディレクトリ作成（初回のみ）
@@ -63,9 +75,9 @@ for i in `seq 2002 $(date +"%Y")`; do go-cve-dictionary fetchjvn -dbpath $(pwd)/
 
 OVALデータベース
 ```bash
-goval-dictionary fetch-redhat -dbpath $(pwd)/db/oval.sqlite3 7 8
-goval-dictionary fetch-debian -dbpath $(pwd)/db/oval.sqlite3 10
-goval-dictionary fetch-ubuntu -dbpath $(pwd)/db/oval.sqlite3 18
+goval-dictionary fetch-redhat -dbpath $(pwd)/db/oval.sqlite3 6 7 8
+goval-dictionary fetch-debian -dbpath $(pwd)/db/oval.sqlite3 8 9 10
+goval-dictionary fetch-ubuntu -dbpath $(pwd)/db/oval.sqlite3 14 16 18 20
 ```
 
 GOSTデータベース
