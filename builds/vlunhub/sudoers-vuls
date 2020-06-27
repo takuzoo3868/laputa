@@ -1,0 +1,2 @@
+# see https://vuls.io/docs/en/usage-configtest.html#etc-sudoers
+vuls ALL=(ALL) NOPASSWD:SETENV: /usr/bin/apt-get update, /usr/bin/stat *, /usr/sbin/checkrestart, /bin/ls -l /proc/*/exe, /bin/cat /proc/*/maps, /usr/bin/lsof -i -P -n

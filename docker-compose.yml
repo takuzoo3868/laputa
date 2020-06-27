@@ -41,6 +41,16 @@ services:
     cap_add:
       - SYS_PTRACE  # for fast-root or deep scan
   
+  vlunhub:
+    build: builds/vlunhub
+    volumes:
+      - ./data:/data
+    ports:
+      - '9999:22'
+    command: '/bin/bash /data/init.sh'
+    cap_add:
+      - SYS_PTRACE  # for fast-root or deep scan
+  
   vulsrepo:
       image: ishidaco/vulsrepo:latest
       command:
